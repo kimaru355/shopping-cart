@@ -4,7 +4,7 @@ let items = {};
 const listItems = document.createElement("ul");
 
 addItem.addEventListener("click", () => {
-  let entered = document.querySelector("#item").value;
+  const entered = document.querySelector("#item").value;
   if (entered === "") {
     return;
   }
@@ -24,14 +24,15 @@ addItem.addEventListener("click", () => {
   button.style.cssText =
     "background-color: red; margin-left: 20px; padding: 4px; border-radius: 4px;";
   listItems.lastElementChild.appendChild(button);
+  listItems.cssText = "margin-left: 40px;";
 
   list.appendChild(listItems);
   addDelete(listItems.lastElementChild.id);
 });
 
-let addDelete = (idToDelete) => {
-  let allItems = document.querySelectorAll(".delete");
-  let toDelete = document.querySelector(`#${idToDelete}`);
+const addDelete = (idToDelete) => {
+  const allItems = document.querySelectorAll(".delete");
+  const toDelete = document.querySelector(`#${idToDelete}`);
   allItems[allItems.length - 1].addEventListener("click", () => {
     list.firstElementChild.removeChild(toDelete);
   });
